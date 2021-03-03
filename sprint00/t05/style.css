@@ -1,0 +1,14 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: red;
+}
+span {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    height: 0.93em;
+}

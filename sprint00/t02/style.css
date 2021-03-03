@@ -1,0 +1,9 @@
+.search-elem {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: green;
+    height: 2em;
+}
+.search-elem:hover {
+    color: red;
+}

@@ -1,0 +1,26 @@
+#main-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+.day-block {
+    width: 120px;
+    text-align: center;
+    font-family: Lato;
+    margin-right: 5px;
+    box-shadow: 0 0 0 transparent;
+    transition: box-shadow 500ms ease;
+}
+.day-block:hover {
+    transition: box-shadow 500ms ease;
+    box-shadow: 0 0 10px black;
+}
+.daynum {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: white;
+    background: teal;
+}
+.temp {
+    font-weight: 400;
+    font-size: 2em;
+}

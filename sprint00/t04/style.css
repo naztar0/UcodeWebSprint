@@ -1,0 +1,59 @@
+#main-container {
+    display: flex;
+    flex-flow: wrap;
+}
+.card {
+    width: 270px;
+    height: 140px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper {
+    position: relative;
+}
+img {
+    height: 160px;
+    margin-left: 10px;
+}
+.move-up {
+    margin-top: -20px;
+}
+.move-up {
+    margin-top: -20px;
+}
+.move-up {
+    margin-top: -20px;
+}
+.move-down {
+    margin-bottom: -20px;
+}
+.name-container {
+    margin-right: 15px;
+    color: white;
+}
+.superhero-name {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: end;
+}
+.person-name {
+    margin-top: -10px;
+    font-size: 10px;
+    text-align: end;
+    opacity: 75%;
+}
+#captain-america {
+    background: linear-gradient(#4568dc, #b06ab3);
+}
+#iron-man {
+    background: linear-gradient(#e52d27, #b31217);
+}
+#black-widow {
+    background: linear-gradient(#000, #61045f);
+}
+#spider-man {
+    background: linear-gradient(#e52d27, #000);
+}
