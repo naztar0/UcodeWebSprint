@@ -1,0 +1,29 @@
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+.topics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+fieldset {
+    margin: 10px;
+}
+@media (max-width: 320px) {
+    .topics {
+        flex-direction: column;
+    }
+}
+@media (min-width:321px) and (max-width: 1024px) {
+    .topics {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    fieldset {
+        width: 40%;
+        box-sizing: border-box;
+    }
+}
