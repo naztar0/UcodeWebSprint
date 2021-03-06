@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Settings</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Settings</h1>
+        <form>
+            <div id="settings-main">
+                <div class="settings-containers">
+                    <fieldset>
+                        <legend>Typeface</legend>
+                        <select size="1">
+                            <option selected>Acunim Pro</option>
+                            <option>Comic Sans</option>
+                            <option disabled>Times New Roman</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <div id="dark-ui-block">
+                            <div class="dark-ui-container">
+                                <label for="dark-ui" class="fieldset-label">Dark UI</label>
+                                <input type="checkbox" id="dark-ui">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="settings-containers">
+                    <fieldset>
+                        <legend>Weight</legend>
+                        <div id="weight-block">
+                            <div class="weight-container">
+                                <input type="checkbox" class="weight" id="regular">
+                                <label for="regular">Regular</label>
+                            </div>
+                            <div class="weight-container">
+                                <input type="checkbox" class="weight" id="bold">
+                                <label for="bold">Bold</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Color</legend>
+                        <div id="color-block">
+                            <div class="color-container">
+                                <input type="checkbox" class="color" id="blue">
+                                <label for="blue"></label>
+                            </div>
+                            <div class="color-container">
+                                <input type="checkbox" class="color" id="green">
+                                <label for="green"></label>
+                            </div>
+                            <div class="color-container">
+                                <input type="checkbox" class="color" id="pink">
+                                <label for="pink"></label>
+                            </div>
+                            <div class="color-container">
+                                <input type="checkbox" class="color" id="yellow">
+                                <label for="yellow"></label>
+                            </div>
+                            <div class="color-container">
+                                <input type="checkbox" class="color" id="orange">
+                                <label for="orange"></label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="settings-containers">
+                    <fieldset>
+                        <legend>Size</legend>
+                        <div id="size-block">
+                            <div class="size-container">
+                                <input type="range" min="1" max="10" step="1" value="2" class="size-slider">
+                                <div id="size-captions">
+                                    <span id="size-small">A</span>
+                                    <span id="size-big">A</span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div id="right-menu">
+                <img src="assets/images/artistic-brush.png" alt="brush">
+                <img src="assets/images/user-icon.png" alt="user">
+                <img src="assets/images/sms-speech-bubble.png" alt="sms">
+                <img src="assets/images/computer-screen.png" alt="comp">
+            </div>
+        </form>
+    </body>
+</html>

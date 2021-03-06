@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Oscorp</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div id="logo">
+                <img src="assets/images/logo.png" alt="logo">
+            </div>
+            <div id="head-menu">
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+                <input type="search" placeholder="Search">
+            </div>
+            <div id="phone">
+                <a href="tel:+380506688444">Phone: +380506688444</a>
+            </div>
+        </header>
+        <div id="breadcrumbs">
+            <span>Home</span>
+            <span>/</span>
+            <span>Catalog</span>
+        </div>
+        <main>
+            <div>
+                <h2>Catalog</h2>
+                <div>
+                    <label class="input-container">
+                        <input type="checkbox">
+                        <span>Weapon</span>
+                    </label>
+                    <label class="input-container">
+                        <input type="checkbox">
+                        <span>Alien</span>
+                    </label>
+                    <label class="input-container">
+                        <input type="checkbox">
+                        <span>Green</span>
+                    </label>
+                </div>
+            </div>
+            <div id="filters">
+                <fieldset>
+                    <legend>Chance of Lethal  Effect</legend>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="filter-checkbox" id="unlikely">
+                        <label for="unlikely">Unlikely (0-20%)</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="filter-checkbox" id="mild">
+                        <label for="mild">Mild (20-40%)</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="filter-checkbox" id="moderate">
+                        <label for="moderate">Moderate (40-60%)</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="filter-checkbox" id="likely">
+                        <label for="likely">Likely (60-80%)</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="filter-checkbox" id="certain">
+                        <label for="certain">Certain (80-100%)</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Price</legend>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="20000" step="500" value="10000" class="slider">
+                        <div id="slider-captions">
+                            <span>0</span>
+                            <span>20000</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <table id="main-content">
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Radioacive spider</a>
+                                <span class="price">3499.99$</span>
+                                <span class="not-available">not available</span>
+                                <input class="non-available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Goblin pumpkin bomb</a>
+                                <span class="price">214.50$</span>
+                                <span class="available">available</span>
+                                <input class="available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Goblin glider</a>
+                                <span class="price">9200.00$</span>
+                                <span class="available">available</span>
+                                <input class="available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Radioacive spider</a>
+                                <span class="price">3499.99$</span>
+                                <span class="not-available">not available</span>
+                                <input class="non-available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Radioacive spider</a>
+                                <span class="price">3499.99$</span>
+                                <span class="not-available">not available</span>
+                                <input class="non-available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="img">
+                            <div>
+                                <a href="#">Goblin pumpkin bomb</a>
+                                <span class="price">214.50$</span>
+                                <span class="available">available</span>
+                                <input class="available" type="button" value="BUY">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </body>
+</html>

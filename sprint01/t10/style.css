@@ -1,0 +1,221 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+    width: 620px;
+    margin-left: 20px;
+    text-align: center;
+    color: rgb(97, 110, 122);
+}
+form {
+    width: 620px;
+    height: 330px;
+    margin: 20px;
+    background-color: rgb(74, 85, 95);
+    color: whitesmoke;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+}
+#settings-main {
+    width: 86%;
+    margin-left: 20px;
+    background-color: rgb(97, 110, 122);
+    border: 1px solid rgb(173, 173, 173);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.settings-containers {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+fieldset {
+    width: 50%;
+    border: none;
+}
+.fieldset-label {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+select {
+    background-color: rgb(61, 69, 77);
+    color: whitesmoke;
+    border: 1px solid rgb(173, 173, 173);
+    margin-top: 5px;
+    padding: 5px;
+    width: 85%;
+}
+#dark-ui-block {
+    margin-top: 30px;
+    user-select: none;
+}
+#dark-ui {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    margin-top: -5px;
+    margin-left: 96px;
+    vertical-align: top;
+    background-color: rgb(61, 69, 77);
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;;
+}
+#dark-ui::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: rgb(94, 201, 165);
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+#dark-ui:checked {
+    background-color: cornflowerblue;
+    transition: background-color 0.3s ease;
+}
+#dark-ui:checked::after {
+    transform: translateX(calc(100% - 1.5px));
+    transition: transform 0.3s ease;
+}
+
+#weight-block {
+    display: flex;
+}
+.weight-container {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.weight {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    vertical-align: top;
+    background-color: rgb(61, 69, 77);
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+}
+.weight::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    color: rgb(94, 201, 165);
+    left: 4px;
+    top: 1px;
+}
+.weight:checked::after {
+    content: "\2713";
+}
+
+
+#color-block {
+    display: flex;
+}
+.color-container {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.color {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-top: 0;
+    vertical-align: top;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 99px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+}
+#blue {
+    background-color: steelblue;
+}
+#green {
+    background-color: rgb(94, 201, 165);
+}
+#pink {
+    background-color: rgb(180, 96, 201);
+}
+#yellow {
+    background-color: rgb(207, 207, 63);
+}
+#orange {
+    background-color: orange;
+}
+.color::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    color: white;
+    left: 6.5px;
+    top: 3px;
+}
+.color:checked::after {
+    content: "\2713";
+}
+
+.size-container {
+    margin-top: 10px;
+}
+#size-captions {
+    width: 176px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4px;
+    margin-top: 10px;
+    padding-left: 2px;
+}
+#size-small {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+#size-big {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.size-slider {
+    width: 180px;
+    height: 2px;
+    border-radius: 5px;
+    background: rgb(61, 69, 77);
+    outline: none;
+    -webkit-appearance: none;
+}
+.size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: rgb(94, 201, 165);
+    cursor: pointer;
+}
+
+img {
+    width: 30px;
+}
+#right-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 15px;
+    background-color: rgb(61, 69, 77);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

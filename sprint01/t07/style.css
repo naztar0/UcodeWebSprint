@@ -1,0 +1,212 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+header {
+    display: flex;
+    background-color: rgb(134, 51, 51);
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+header a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+#logo img {
+    width: 60px;
+}
+#head-menu {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+#head-menu input[type=search] {
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+    text-align: center;
+}
+#head-menu input[type=search]::placeholder {
+    color: rgba(255, 255, 255, 0.9);
+}
+#phone {
+    margin-right: 10px;
+}
+#breadcrumbs {
+    background-color: lightgray;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+}
+#breadcrumbs span:first-child {
+    color: rgb(134, 51, 51);
+}
+main {
+    padding-left: 20px;
+}
+.input-container {
+    margin-right: 20px;
+}
+.input-container input[type=checkbox] {
+    position: absolute;
+    top: -20px;
+}
+.input-container span {
+    background-color: black;
+    color: white;
+    padding-bottom: 7px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-right: 30px;
+    border-radius: 99px;
+    user-select: none;
+    appearance: none;
+}
+.input-container input[type=checkbox]:checked + span {
+    background-color: black;
+    color: white;
+    border: none;
+}
+.input-container input[type=checkbox]:checked + span:after {
+    content: " \2713";
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-top: 50px;
+    margin-left: -15px;
+}
+#filters fieldset {
+    border: none;
+}
+
+.checkbox-container {
+    margin-top: 10px;
+    margin-right: 20px;
+    user-select: none;
+}
+.filter-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    vertical-align: top;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+}
+.filter-checkbox::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    color: white;
+    left: 4px;
+    top: 1px;
+}
+.filter-checkbox:checked {
+    background-color: black;
+}
+.filter-checkbox:checked::after {
+    content: "\2713";
+}
+
+.slider-container {
+    margin-top: 10px;
+}
+#slider-captions {
+    width: 176px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4px;
+    margin-top: 10px;
+    padding-left: 2px;
+}
+.slider {
+    width: 180px;
+    height: 2px;
+    border-radius: 5px;
+    background: rgb(134, 51, 51);
+    outline: none;
+    -webkit-appearance: none;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: rgb(134, 51, 51);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: none;
+    }
+    #filters {
+        flex-direction: row;
+        width: 100%;
+    }
+    #filters fieldset:first-child {
+        margin-right: 15%;
+    }
+}
+
+#main-content {
+    position: absolute;
+    top: 220px;
+    left: 300px;
+}
+td {
+    width: 350px;
+    height: 150px;
+}
+.card {
+    display: flex;
+}
+.card div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 2.5%;
+}
+.card div a, span, input {
+    margin-bottom: 6px;
+}
+.card div a {
+    color: black;
+    text-decoration: none;
+}
+.price {
+    font-weight: bold;
+}
+span.available {
+    color: rgb(0, 87, 0);
+}
+.not-available {
+    color: rgb(153, 0, 0);
+}
+.card img {
+    height: 120px;
+    width: 120px;
+    border-radius: 25px;
+}
+.card input {
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: darkgray;
+    border: none;
+    border-radius: 5px;
+}
+input.available {
+    background-color: rgb(153, 0, 0);
+}
