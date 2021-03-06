@@ -1,0 +1,17 @@
+#circle {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 99px;
+    transition: background-color ease-out 2.1s;
+    animation: 1.5s ease-in 0.5s infinite alternate circle-move;
+}
+@keyframes circle-move {
+    from {margin-left: 0;}
+    to {margin-left: calc(100% - 100px);}
+}
+
+#circle:hover {
+    background-color: red;
+    transition: background-color linear 2.1s;
+}
