@@ -6,153 +6,373 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <section>
+        <div>
             <h2>Contents</h2>
             <ol>
-                <li><a>HTML</a></li>
-                <li><a>CSS</a></li>
-                <li><a>Protocols</a></li>
+                <li><a href="#ihtml">HTML</a>
+                    <ul>
+                        <li><a href="#blel">BLOCK ELEMENTS</a></li>
+                        <li><a href="#lita">LIST TAGS</a></li>
+                        <li><a href="#meta">MEDIA TAGS</a></li>
+                    </ul>
+                </li>
+                <li><a  href="#css">CSS</a>
+                    <ul>
+                        <li><a href="#selectors">SELECTORS</a></li>
+                        <li><a href="#prop">PROPERTIES</a></li>
+                    </ul>
+                </li>
+                <li><a href="#protocols">Protocols</a>
+                    <ul>
+                        <li><a href="#http">HTTP/HTTPS</a></li>
+                        <li><a href="#dns">DNS</a></li>
+                        <li><a href="#ip">IP</a></li>
+                    </ul>
+                </li>
             </ol>
-        </section>
-        <section>
-            <h2>HTML</h2>
+        </div>
+        <div>
+            <h2 id="ihtml">HTML</h2>
             <div>
-                <h3>BLOCK ELEMENTS</h3>
+                <h3 id="blel">BLOCK ELEMENTS</h3>
                 <div class="topics">
                     <fieldset>
-                        <span>div</span>
+                        <span>div</span><br>
                         <br>
                         <span>Defines a division or a section in an HTML document</span>
                         <br>
                         <span><code>&lt;div&gt;...&lt;/div&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <div style="border: 1px solid black; color: blue;">Lorem ipsum</div>
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>footer</span>
+                        <span>footer</span><br>
                         <br>
                         <span>Specifies the trailing area (footer) of a document or section</span>
                         <br>
                         <span><code>&lt;footer&gt;content&lt;/footer&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <footer style="border: 1px solid black; color: blue;">Lorem ipsum</footer>
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>main</span>
+                        <span>main</span><br>
                         <br>
                         <span>Specifies the main content of a document</span>
                         <br>
                         <span><code>&lt;main&gt;content&lt;/main&gt;</code></span>
                         <!--Example-->
-                        <p>
-                            <main style="border: 1px solid black; color: blue;">Lorem ipsum</main>
-                        </p>
+                        <div class="example">
+                            <span style="border: 1px solid black; color: blue;">Lorem ipsum</span>
+                        </div>
                     </fieldset>
-                </div>
-                <h3>TEXT TAGS</h3>
-                <div class="topics">
                     <fieldset>
-                        <span>h1</span>
+                        <span>h1</span><br>
                         <br>
                         <span>The h1 to h6 tags are used to define HTML hadings</span>
                         <br>
                         <span><code>&lt;h1&gt;Title&lt;/h1&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <h1>Title</h1>
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>p</span>
+                        <span>p</span><br>
                         <br>
                         <span>Defines a paragraph</span>
                         <br>
                         <span><code>&lt;p&gt;content&lt;/p&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <p>content</p>
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>time</span>
+                        <span>time</span><br>
                         <br>
                         <span>Defines a specific time (or datetime)</span>
                         <br>
                         <span><code>&lt;time&gt;12:00&lt;/time&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <time>12:00</time>
-                        </p>
+                        </div>
                     </fieldset>
                 </div>
-                <h3>LIST TAGS</h3>
+                <h3 id="lita">LIST TAGS</h3>
                 <div class="topics">
                     <fieldset>
-                        <span>ul li</span>
+                        <span>ul li</span><br>
                         <br>
                         <span>Defines an unordered list item</span>
                         <br>
                         <span><code>&lt;ul&gt;&lt;li&gt;list item&lt;/li&gt;&lt;/ul&gt;</code></span>
                         <!--Example-->
-                        <p>
-                            <ul>Lorem ipsum
+                        <div class="example"><span>Lorem ipsum</span>
+                            <ul>
                                 <li>Dor</li>
                                 <li>Si</li>
                                 <li>Amet</li>
                             </ul>
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>ol li</span>
+                        <span>ol li</span><br>
                         <br>
                         <span>Defines an ordered list item</span>
                         <br>
                         <span><code>&lt;ol&gt;&lt;li&gt;list item&lt;/li&gt;&lt;/ol&gt;</code></span>
                         <!--Example-->
-                        <p>
-                            <ol>Lorem ipsum
+                        <div class="example"><span>Lorem ipsum</span>
+                            <ol>
                                 <li>Dor</li>
                                 <li>Si</li>
                                 <li>Amet</li>
                             </ol>
-                        </p>
+                        </div>
                     </fieldset>
                 </div>
-                <h3>MEDIA TAGS</h3>
+                <h3 id="meta">MEDIA TAGS</h3>
                 <div class="topics">
                     <fieldset>
-                        <span>img</span>
+                        <span>img</span><br>
                         <br>
                         <span>Defines an image</span>
                         <br>
                         <span><code>&lt;img src="Gull_portrait_ca_usa.jpg"&gt;</code></span>
                         <!--Example-->
-                        <p>
+                        <div class="example">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt="random image" style="height: 50px;">
-                        </p>
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <span>video</span>
+                        <span>video</span><br>
                         <br>
                         <span>Defines embedded video content</span>
                         <br>
                         <span><code>&lt;video&gt;&lt;source src="v.mp4"&gt;&lt;/video&gt;</code></span>
                         <!--Example-->
-                        <p>
-                            <video width="100px" controls> 
+                        <div class="example">
+                            <video width="100" controls> 
                                 <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm> 
                                 <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg> 
                                 <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
                                 <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
                               </video>
-                        </p>
+                        </div>
                     </fieldset>
                 </div>
             </div>
-        </section>
+            <h2 id="css">CSS</h2>
+            <div>
+                <h3 id="selectors">SELECTORS</h3>
+                <div class="topics">
+                    <fieldset>
+                        <span>.class</span><br>
+                        <br>
+                        <span>Selects all elements with class="name"</span>
+                        <br>
+                        <span><code>.class</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>.name1.name2</span><br>
+                        <br>
+                        <span>Selects all elements with both name1 and name2 set within its class attribute</span>
+                        <br>
+                        <span><code>.class1.class2</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>.class1 .class2</span><br>
+                        <br>
+                        <span>Selects all elements with name2 that is a descendant of an element with name1</span>
+                        <br>
+                        <span><code>.name1 name2</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>#id</span><br>
+                        <br>
+                        <span>Selects the element with id="firstname"</span>
+                        <br>
+                        <span><code>#firstname</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>*</span><br>
+                        <br>
+                        <span>Selects all elements</span>
+                        <br>
+                        <span><code>*</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>element</span><br>
+                        <br>
+                        <span>Selects all &lt;p&gt; elements</span>
+                        <br>
+                        <span><code>p</code></span>
+                    </fieldset>
+                </div>
+                <h3 id="prop">PROPERTIES</h3>
+                <div class="topics">
+                    <fieldset>
+                        <span>align-content</span><br>
+                        <br>
+                        <span>Specifies the alignment between the lines inside a flexible container when the items do not use all available space</span>
+                        <br>
+                        <span><code>align-content: center</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>align-items</span><br>
+                        <br>
+                        <span>Specifies the alignment for items inside a flexible container</span>
+                        <br>
+                        <span><code>align-items: center</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>background</span><br>
+                        <br>
+                        <span>A shorthand property for all the background-* properties</span>
+                        <br>
+                        <span><code>background: green</code></span>
+                        <br>
+                        <!--Example-->
+                        <p style="background: green; height: 5px; width: 100%"></p>
+                    </fieldset>
+                    <fieldset>
+                        <span>border</span><br>
+                        <br>
+                        <span>A shorthand property for border-width, border-style and border-color</span>
+                        <br>
+                        <span><code>border: 1px solid green</code></span>
+                        <br>
+                        <!--Example-->
+                        <p style="border: 1px solid green; height: 5px; width: 100%"></p>
+                    </fieldset>
+                    <fieldset>
+                        <span>bottom</span><br>
+                        <br>
+                        <span>Sets the elements position, from the bottom of its parent element</span>
+                        <br>
+                        <span><code>bottom: auto</code></span>
+                    </fieldset>
+                    <fieldset>
+                        <span>color</span><br>
+                        <br>
+                        <span>Sets the color of text</span>
+                        <br>
+                        <span><code>color: green</code></span>
+                        <br>
+                        <!--Example-->
+                        <p style="color: green;">text</p>
+                    </fieldset>
+                </div>
+            </div>
+            <h2 id="protocols">Protocols</h2>
+            <div>
+                <h3 id="http">HTTP/HTTPS</h3>
+                <div class="topics">
+                    <fieldset>
+                        <span>GET</span><br>
+                        <br>
+                        <span>The GET method means retrieve whatever information (in the form of an entity) is identified by the Request-URI. If the Request-URI refers to a data-producing process, it is the produced data which shall be returned as the entity in the response and not the source text of the process, unless that text happens to be the output of the process.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>POST</span><br>
+                        <br>
+                        <span>The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>HEAD</span><br>
+                        <br>
+                        <span>The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response. The metainformation contained in the HTTP headers in response to a HEAD request SHOULD be identical to the information sent in response to a GET request.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>PUT</span><br>
+                        <br>
+                        <span>The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>DELETE</span><br>
+                        <br>
+                        <span>The DELETE method requests that the origin server delete the resource identified by the Request-URI. This method MAY be overridden by human intervention (or other means) on the origin server.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>OPTIONS</span><br>
+                        <br>
+                        <span>The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. This method allows the client to determine the options and/or requirements associated with a resource, or the capabilities of a server, without implying a resource action or initiating a resource retrieval.</span>
+                    </fieldset>
+                    <fieldset>
+                        <ol>
+                            <li>1xx informational response</li>
+                            <li>2xx success</li>
+                            <li>3xx redirection</li>
+                            <li>4xx client errors</li>
+                            <li>5xx server errors</li>
+                        </ol>
+                    </fieldset>
+                </div>
+                <h3 id="dns">DNS</h3>
+                <div class="topics">
+                    <fieldset>
+                        <span>A Record</span><br>
+                        <br>
+                        <span>Stores a hostname and its corresponding IPv4 address.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>AAAA Record</span><br>
+                        <br>
+                        <span>Stores a hostname and its corresponding IPv6 address.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>CNAME Record</span><br>
+                        <br>
+                        <span>Can be used to alias a hostname to another hostname</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>MX Record</span><br>
+                        <br>
+                        <span>Specifies an SMTP email server for the domain, used to route outgoing emails to an email server.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>NS Record</span><br>
+                        <br>
+                        <span>Specifies that a DNS Zone, such as “example.com” is delegated to a specific Authoritative Name Server, and provides the address of the name server.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>PTR Record</span><br>
+                        <br>
+                        <span>Allows a DNS resolver to provide an IP address and receive a hostname (reverse DNS lookup).</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>CERT Record</span><br>
+                        <br>
+                        <span>Stores encryption certificates—PKIX, SPKI, PGP, and so on.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>SRV Record</span><br>
+                        <br>
+                        <span>A service location record, like MX but for other communication protocols.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>TXT Record</span><br>
+                        <br>
+                        <span>Typically carries machine-readable data such as opportunistic encryption, sender policy framework, DKIM, DMARC, etc.</span>
+                    </fieldset>
+                    <fieldset>
+                        <span>SOA Record</span><br>
+                        <br>
+                        <span>This record appears at the beginning of a DNS zone file, and indicates the Authoritative Name Server for the current DNS zone.</span>
+                    </fieldset>
+                </div>
+                <h3 id="ip">IP</h3>
+                <div class="topics">
+                    <fieldset>
+                        <span>Using the command line, you can use the ping command to find the IP address of a website. At the prompt, type in ping and leave a single space, then type in your website’s address (including the “www.” part). Then press Enter.</span>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

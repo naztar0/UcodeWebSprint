@@ -7,10 +7,15 @@ h3 {
 .topics {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 fieldset {
     margin: 10px;
+    width: 250px;
+    border: 1px solid gray;
+}
+.example {
+    margin-top: 10px;
 }
 @media (max-width: 320px) {
     .topics {
