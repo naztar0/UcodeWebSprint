@@ -1,1 +1,0 @@
-console.log(checkBrackets('1)()(())2(()')); // 2
