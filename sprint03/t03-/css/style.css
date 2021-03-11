@@ -1,0 +1,39 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+main div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+main img {
+    height: 400px;
+    width: 400px;
+}
+#calories-text {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#calories {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+#message {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+}
+#buttons {
+    margin-top: 20px;
+}
+#buttons input {
+    margin-bottom: 10px;
+    width: 150px;
+    margin-left: 125px;
+}
