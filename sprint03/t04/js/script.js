@@ -15,9 +15,7 @@ let houseMixin = {
         for (let i = 0; i < desc.length; i++)
             if (desc[i] === str1) {
                 // not working
-                console.log(desc);
                 desc.slice(i, 0, str2);
-                console.log(desc);
             }
         this.description = desc.join(' ');
         return this;
@@ -26,7 +24,7 @@ let houseMixin = {
         let desc = this.description.split(' ');
         for (let i = 0; i < desc.length; i++)
             if (desc[i] === str)
-            // not working
+                // not working
                 desc.slice(i, 1);
         this.description = desc.join(' ');
         return this;

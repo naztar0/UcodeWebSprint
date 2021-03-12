@@ -1,12 +1,21 @@
-let num = 1;
+function* generator(){
+    var num = 1;
+    while (true) {
+      var n = yield num;
+      num += n;
+      if (num > 10000)
+        num = 1;
+    }
+  }
+
+let gen = generator();
+let n = 1;
 
 while (true) {
-    let value = prompt(`Previous result: ${num}. Enter a new number:`);
-    if (Number.isNaN(value)) {
+    let nTmp = prompt(`Previous result: ${gen.next(n).value}. Enter a new number:`);
+    if (isNaN(nTmp)) {
         console.error("Invalid number!");
-        continue;
+        break;
     }
-    num += value;
-    if (num > 10000);
-        num = 1;
+    n = parseInt(nTmp);
 }

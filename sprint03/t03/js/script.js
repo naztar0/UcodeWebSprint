@@ -18,7 +18,7 @@ class Human {
         caloriesElem.innerHTML = this.calories;
 
         setInterval(() => {
-            if (this.calories > 0) {
+            if (this.calories > 200) {
                 this.calories -= 200;
                 caloriesElem.innerHTML = this.calories;
                 if (this.calories < 500) {
@@ -37,16 +37,17 @@ class Human {
         let timeout = prompt("Timeout");
         messageElem.innerHTML = "I'm sleeping";
         setTimeout(() => {messageElem.innerHTML = "I'm awake now";}, timeout);
-        return this;
+        return;
     }
     feed() {
+        this.calories = parseInt(caloriesElem.innerHTML);
         if (this.calories > 500) {
             messageElem.innerHTML = "I'm not hungry";
-            return this;
+            return;
         }
+        console.log(this.calories);
         messageElem.innerHTML = "Nom nom nom";
         setTimeout(() => {
-            // NaN
             this.calories += 200;
             caloriesElem.innerHTML = this.calories;
             messageElem.innerHTML = '';
@@ -57,7 +58,7 @@ class Human {
                 fightButton.style.display = 'unset';
             }
         }, 10000);
-        return this;
+        return;
     }
 }
 
