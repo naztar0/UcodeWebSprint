@@ -1,0 +1,67 @@
+h1 {
+    text-align: center;
+}
+main {
+    display: flex;
+    background-color: lightgrey;
+}
+img {
+    width: 250px;
+    height: 350px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+#list-block {
+    width: 25%;
+    height: 400px;
+    background-color: lightgray;
+    min-width: 170px;
+}
+#info-block {
+    height: 400px;
+    background-color: lightgrey;
+    display: flex;
+}
+.separator-block {
+    width: 2px;
+    height: 350px;
+    margin-top: 25px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 99px;
+}
+.list-item {
+    cursor: pointer;
+}
+.list-item-wrapper {
+    padding: 15px 15px 10px 10px;
+    text-align: center;
+    display: flex;
+    text-align: center;
+}
+.list-flag {
+    width: 3px;
+    height: 30px;
+    background-color: dodgerblue;
+    border-radius: 99px;
+}
+.list-film-title {
+    margin-top: 7px;
+    margin-left: 5px;
+    width: 100%;
+}
+.left-wrapper {
+    padding: 30px;
+}
+.actors {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.actor {
+    padding: 5px;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}

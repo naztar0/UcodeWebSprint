@@ -1,0 +1,11 @@
+.stone {
+    width: 70px;
+    height: 70px;
+    background-color: green;
+    transform: rotate(45deg);
+}
+.off {
+    width: 64px;
+    height: 64px;
+    border: black dotted 3px;
+}

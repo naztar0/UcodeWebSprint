@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+div {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(50% - 100px);
+}
+#info {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(184, 70, 70);
+    padding: 5px 15px 5px 15px;
+    border-radius: 99px;
+}

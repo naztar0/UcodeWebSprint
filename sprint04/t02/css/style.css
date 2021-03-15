@@ -1,0 +1,25 @@
+#notification {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: gray;
+    padding: 5px 15px 5px 15px;
+    border-radius: 99px;
+}
+#placeholder {
+    margin-left: 25%;
+}
+table {
+    border: 3px solid black;
+}
+th {
+    padding: 10px;
+    width: 80px;
+    background-color: rgb(212, 4, 4);
+    user-select: none;
+}
+td {
+    padding: 10px;
+    text-align: center;
+    background-color: lightgray;
+}
