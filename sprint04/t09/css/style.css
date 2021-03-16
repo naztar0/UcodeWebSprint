@@ -1,0 +1,43 @@
+form {
+    padding: 10px;
+}
+#buttons {
+    display: flex;
+    justify-content: space-between;
+}
+#btn1 {
+    padding: 10px;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    color: white;
+}
+#btn2 {
+    padding: 10px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    color: rgb(0, 0, 0);
+}
+#fields {
+    margin-top: 20px;
+    background-color: rgb(224, 224, 224);
+    padding: 20px 20px 0 0;
+}
+fieldset {
+    border: none;
+}
+input[type="text"] {
+    width: 100%;
+    border: 2px solid lightskyblue;
+    border-radius: 5px;
+}
+#output {
+    height: 25px;
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 8px;
+}
