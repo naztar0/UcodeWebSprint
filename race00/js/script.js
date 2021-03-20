@@ -125,7 +125,7 @@ window.onload = (event) => {
         // console.log(event.key)
 
         let reNums = /^(\.|\(|\)|\,|\d|[abcdef])$/i;
-        let reSigns = /^[!/\^\*\%\=\+\-]$/;
+        let reSigns = /^[!\/\^\*\%\=\+\-]$/;
 
         if (code === 13 || code === 61) {
             event.preventDefault();
@@ -171,7 +171,7 @@ window.onload = (event) => {
     for (let i = 0; i < document.getElementsByTagName('button').length; i++)
         document.getElementsByTagName('button')[i].addEventListener('click', add);
 
-    // Добавление символов по клику (СЫРО)
+    // Добавление символов по клику
     function add(event) {
         if (event.type === 'click') {
             event.preventDefault();
@@ -179,7 +179,7 @@ window.onload = (event) => {
             let value = button.value;
 
             // Вызов функции для вставки символа
-            console.log(temp);
+            console.log(value);
             if (value === 'CA') {
                 converter.hidden = !converter.hidden;
             }
@@ -222,9 +222,18 @@ window.onload = (event) => {
                     equation.value += ')';
             }
             else {
-                if (value.match(/^[\d\.%/\*\+\-]$/))
+                if (value.match(/[\d\.]/)) {
                     equation.value += value;
-                if (value.match(/^[abcdef]$/i) && numsys === 16) {
+                    temp = value;
+                }
+                else if (value.match(/^[%/\*\+\-]$/)) {
+                    if (!temp.match(/^[%/\*\+\-]$/)) {
+                        console.log('sign 2')
+                        equation.value += ` ${value} `;
+                        temp = value;
+                    }
+                }
+                else if (value.match(/^[abcdef]$/i) && numsys === 16) {
                     equation.value += value;
                 }
             }
@@ -258,16 +267,26 @@ window.onload = (event) => {
         }
         value = value.replaceAll('^', '**');
         value = value.replaceAll('𝜋', Math.PI);
-        let factMatch = value.match(/( *\d *\!|\(.+\) *!)/g);
+        let factMatch = value.match(/( *\d+ *\!|\(.+\) *!)/g);
         let sqrtMatch = value.match(/√ *\( *.+ *\)/g);
+        let percMatch = value.match(/(\d+|\(.+\)) *[\/\*\+\-] *\d+ *\%/g);
+        if (percMatch)
+            percMatch.forEach(element => {
+                let num = eval(element.match(/(\d+|\(.+\))/)[0]);
+                let perc = element.match(/\d+ *\%/)[0].match(/\d+/)[0];
+                let sign = element.match(/[\/\*\+\-]/)[0];
+                let res = eval(`${num} ${sign} ${(num * perc / 100)}`);
+                value = value.replace(element, res);
+            });
         if (factMatch)
             factMatch.forEach(element => {
-                value = value.replace(element, 'factorial(' + element.slice(0, element.length - 2) + ')');
+                let num = eval(element.slice(0, element.length - 1));
+                value = value.replace(element, factorial(num));
             });
         if (sqrtMatch)
             sqrtMatch.forEach(element => {
                 let num = eval(element.slice(1));
-                value = value.replace(element, Math.sqrt(parseInt(num, numsys)).toString(numsys));
+                value = value.replace(element, Math.sqrt(num));
             });
         if (numsys !== 10) {
             let intMatch = value.match(/[\dabcdef]+/gi);
@@ -321,24 +340,24 @@ function convertation(value, from, to) {
     if (from === 'cm') {
         if (to === 'cm')
             return value;
-        if (to === 'm') 
-            return value * 100;
+        if (to === 'm')
+            return value / 100;
         if (to === 'km')
-            return value * 100000;
+            return value / 100000;
     }
     if (from === 'm') {
         if (to === 'cm')
-            return value / 100;
+            return value * 100;
         if (to === 'm')
             return value;
         if (to === 'km')
-            return value * 1000;
+            return value / 1000;
     }
     if (from === 'km') {
         if (to === 'cm')
-            return value / 100000;
+            return value * 100000;
         if (to === 'm')
-            return value / 1000;
+            return value * 1000;
         if (to === 'km')
             return value;
     }
@@ -346,23 +365,23 @@ function convertation(value, from, to) {
         if (to === 'g')
             return value;
         if (to === 'kg')
-            return value * 1000;
+            return value / 1000;
         if (to === 't')
-            return value * 1000000;
+            return value / 1000000;
     }
     if (from === 'kg') {
         if (to === 'g')
-            return value / 1000;
+            return value * 1000;
         if (to === 'kg')
             return value;
         if (to === 't')
-            return value * 1000;
+            return value / 1000;
     }
     if (from === 't') {
         if (to === 'g')
-            return value / 1000000;
+            return value * 1000000;
         if (to === 'kg')
-            return value / 1000;
+            return value * 1000;
         if (to === 't')
             return value;
     }
@@ -370,23 +389,23 @@ function convertation(value, from, to) {
         if (to === 'scm')
             return value;
         if (to === 'sm')
-            return value * 10000;
+            return value / 10000;
         if (to === 'skm')
-            return value * 10000000000;
+            return value / 10000000000;
     }
     if (from === 'sm') {
         if (to === 'scm')
-            return value / 10000;
+            return value * 10000;
         if (to === 'sm')
             return value;
         if (to === 'skm')
-            return value * 1000000;
+            return value / 1000000;
     }
     if (from === 'skm') {
         if (to === 'scm')
-            return value / 10000000000;
+            return value * 10000000000;
         if (to === 'sm')
-            return value / 1000000;
+            return value * 1000000;
         if (to === 'skm')
             return value;
     }
@@ -402,10 +421,10 @@ function validation(elem) {
 }
 
 var f = [];
-function factorial (n) {
-  if (n == 0 || n == 1)
-    return 1;
-  if (f[n] > 0)
-    return f[n];
-  return f[n] = factorial(n-1) * n;
+function factorial(n) {
+    if (n == 0 || n == 1)
+        return 1;
+    if (f[n] > 0)
+        return f[n];
+    return f[n] = factorial(n-1) * n;
 }
