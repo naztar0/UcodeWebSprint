@@ -1,0 +1,25 @@
+.elem-box {
+    background-color: rgb(20, 11, 34);
+    border: 2px solid rgb(194, 3, 3);
+    padding: 10px;
+    margin: 5px;
+}
+.key {
+    color: rgb(74, 216, 202);
+}
+.colon {
+    color: gray;
+}
+.value {
+    color: rgb(21, 126, 77);
+}
+.data-container {
+    background-color: rgb(55, 50, 63);
+    border: 2px solid rgb(194, 3, 3);
+    padding: 10px;
+    margin: 10px;
+}
+.data-text {
+    color: white;
+    margin-left: 10px;
+}
