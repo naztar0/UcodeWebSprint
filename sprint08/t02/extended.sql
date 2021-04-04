@@ -1,0 +1,3 @@
+CREATE TABLE `ucode_web`.`powers` ( `id` INT NOT NULL AUTO_INCREMENT , `hero_id` INT NOT NULL , `name` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , `points` INT NOT NULL , `type` ENUM('attack','defense') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `ucode_web`.`races` ( `id` INT NOT NULL AUTO_INCREMENT , `hero_id` INT NOT NULL , `name` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `ucode_web`.`teams` ( `id` INT NOT NULL AUTO_INCREMENT , `hero_id` INT NOT NULL , `name` VARCHAR(30) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

@@ -1,0 +1,1 @@
+INSERT INTO `heroes` (`name`, `description`, `race`, `class_role`) VALUES ('Spider-man', 'description bla bla bla', 'human', 'tankman');
