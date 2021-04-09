@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Sign in</h1>
+        <form action="login.php" method="POST" id="reg">
+            <fieldset>
+                <legend>Login</legend>
+                <input type="text" name="login" required  pattern="^[\w\d]+$">
+            </fieldset>
+            <fieldset>
+                <legend>Password</legend>
+                <input type="password" name="password" id="password" required pattern="[^ ]+">
+            </fieldset>
+            <br>
+            <input type="submit" value="Sign in">
+            <br>
+            <div id="rem"><a href="reminder.html">Remind password</a></div>
+        </form>
+    </body>
+</html>

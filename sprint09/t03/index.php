@@ -1,3 +1,4 @@
 <?php
-    echo 0;
+    require_once(__DIR__ . "/Router.php");
+    $router = new Router();
 ?>
