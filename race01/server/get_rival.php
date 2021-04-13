@@ -1,6 +1,7 @@
 <?php
-    require_once("DatabaseConnection.php");
-    require_once("model.php");
+// nouse
+    require_once("../DatabaseConnection.php");
+    require_once("../model.php");
     $model = new Model();
     $model->room = intval($_GET["room"]);
     $model->username = $_GET["username"];

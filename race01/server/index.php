@@ -31,7 +31,20 @@
         }
     }
     else if ($_GET) {
-        // In other files
+        if (isset($_GET["get_rival"])) {
+            $model = new Model();
+            $model->room = intval($_GET["room"]);
+            $model->username = $_GET["username"];
+            $rival = $model->getRival();
+            die(json_encode(["username" =>  $rival->username, "avatar" => $rival->avatar, "health" => $rival->health, "cards_count" => count($rival->cards)]));
+        }
+        else if (isset($_GET["get_me"])) {
+            $model = new Model();
+            $model->room = intval($_GET["room"]);
+            $model->username = $_GET["username"];
+            $result = $model->getUser($_GET["room"], $_GET["username"]);
+            die(json_encode(["username" =>  $result->username, "avatar" => $result->avatar, "health" => $result->health, "cards_count" => $result->cards]));
+        }
     }
     else
         echo("123");

@@ -14,7 +14,7 @@
         }
         public function __construct() {
             $this->setConnection();
-            $sqlMainQuery = file_get_contents("db.sql");
+            $sqlMainQuery = file_get_contents("../db.sql");
             $this->conn->query($sqlMainQuery);
             $this->conn->commit();
         }
