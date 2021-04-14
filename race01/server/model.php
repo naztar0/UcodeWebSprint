@@ -14,7 +14,7 @@
         }
         public function __construct() {
             $this->setConnection();
-            $sqlMainQuery = file_get_contents("../db.sql");
+            $sqlMainQuery = file_get_contents(__DIR__."/db.sql");
             $this->conn->query($sqlMainQuery);
             $this->conn->commit();
         }
@@ -23,9 +23,15 @@
             $this->username = $username;
             $this->avatar = $avatar;
             $this->health = 20;
-            $this->cards = [];
-            for ($i = 1; $i <= 6; $i++)
-                array_push($this->cards, random_int(1, 20));
+            $cardsIds = [];
+            for ($i = 1; $i <= 6;) {
+                $rand = random_int(0, 19);
+                if (in_array($rand, $cardsIds))
+                    continue;
+                array_push($cardsIds, $rand);
+                $i++;
+            }
+            $this->cards = createStartDeck($cardsIds);
             $query = "SELECT room FROM users ORDER BY room DESC LIMIT 1";
             $result = $this->conn->query($query);
             $this->room = $result->fetch_all()[0];
@@ -38,9 +44,15 @@
             $this->username = $username;
             $this->avatar = $avatar;
             $this->health = 20;
-            $this->cards = [];
-            for ($i = 1; $i <= 6; $i++)
-                array_push($this->cards, random_int(1, 20));
+            $cardsIds = [];
+            for ($i = 1; $i <= 6;) {
+                $rand = random_int(0, 19);
+                if (in_array($rand, $cardsIds))
+                    continue;
+                array_push($cardsIds, $rand);
+                $i++;
+            }
+            $this->cards = createStartDeck($cardsIds);
         }
         public function getUser($room, $username) {
             $result = $this->conn->query("SELECT * FROM `users` WHERE room=$room AND username='".$this->conn->escape_string($this->username)."'");
@@ -52,7 +64,7 @@
             $this->cards = json_decode($result[5]);
         }
         public function getRival() {
-            $result = $this->conn->query("SELECT * FROM `users` WHERE room=$room AND username<>'".$this->conn->escape_string($this->username)."'");
+            $result = $this->conn->query("SELECT * FROM `users` WHERE room=$this->room AND username<>'".$this->conn->escape_string($this->username)."'");
             $result = $result->fetch_all()[0];
             if (!$result)
                 return null;
@@ -71,7 +83,7 @@
         public function save() {
             $query = "INSERT INTO `users` (room, username, avatar, health, cards)
             VALUES ($this->room, '".$this->conn->escape_string($this->username)."',
-            $this->avatar, $this->health,
+            '".$this->conn->escape_string($this->avatar)."', $this->health,
             '".$this->conn->escape_string(json_encode($this->cards))."')";
             $this->conn->query($query);
             $this->conn->commit();

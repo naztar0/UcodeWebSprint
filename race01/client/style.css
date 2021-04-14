@@ -1,0 +1,124 @@
+body {
+    position: relative;
+    background: no-repeat center fixed url("assets/images/dreamWordBackend.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.wrapper {
+    position: absolute;
+    display: grid;
+    width: 1440;
+    height: 1024;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-rows: 25% 50% 25%;
+    border: 2px;
+    border-style: dashed;
+    border-color: antiquewhite;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+
+}
+
+.enemyCards {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.battleField {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    background-image: url("assets/images/backgroundfield.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 24px;
+}
+
+.myCards {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:3;
+    grid-row-end:4;
+    padding-top: 2%;
+}
+
+.enemyHero img, .myHero img {
+    height: 95%;
+    width: 95%;
+}
+
+.enemyCards ul, .myCards ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 0;
+}
+
+.enemyCards li, .myCards li{
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 20);
+    height: 100%;
+}
+
+.enemyCards img, .myCards img {
+    width: 150px;
+    height: 200px;
+}
+
+.enemyCards ul {
+    justify-content: flex-end;
+}
+
+.myCards ul {
+    justify-content: flex-start;
+    position: relative;
+    bottom:0;
+}
+
+.myCards ul li:hover {
+    z-index: 1;
+} 
+
+.myCards ul li:hover img {
+    transition: .3s;
+    width: 175px;
+    height: 237.5px;
+}
+
+
+.containerClock {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.containerClock img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.containerClock label {
+    font-size: 32px;
+    color: ivory;
+    z-index: 1; 
+    position:absolute;
+    top:25%;left:0;right:0;bottom:0;
+    display: flex;
+    align-items: center;
+    justify-content:center
+}
+
+ 

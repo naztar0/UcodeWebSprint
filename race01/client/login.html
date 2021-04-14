@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css" type="text/css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login">
+        <h1>Infinity Wars</h1>
+        <div class="containerImage">
+            <img id="avatarImg" src="assets/images/cardThanos.jpg" alt="default image"></src>
+        </div>
+        <form action="" method="post" id="logForm">
+            <div class="textField">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+            </div>
+            <div class="textField">
+                <input type="text" id="loginImage" placeholder="Avatar" autocomplete="off" required onkeypress="return false;">
+            </div>
+            <div class="textField">
+                <input type="text" id="ipAddress" placeholder="Ip address" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" required>
+            </div>
+            <div class="textField">
+                <input type="text" id="loginRoom" placeholder="Room (empty to create new room)" pattern="^\d*$">
+            </div>
+            <input id="loginBtn" type="button" value="Login">
+        </form>
+        <p id="newRoomText"></p>
+    </div>
+
+    <div id="selectImage" class="modalSelectImage">
+        <div class="modalContent">
+            <div class="close">&times;</div>
+            <div class="modalListImage">
+                <ul id="listImage">
+                    <li id="avatar1"><img src="assets/avatars/avatar1.png" height="250px"></li>
+                    <li id="avatar2"><img src="assets/avatars/avatar2.png" height="250px"></li>
+                    <li id="avatar3"><img src="assets/avatars/avatar3.png" height="250px"></li>
+                    <li id="avatar4"><img src="assets/avatars/avatar4.png" height="250px"></li>
+                    <li id="avatar5"><img src="assets/avatars/avatar5.png" height="250px"></li>
+                    <li id="avatar1"><img src="assets/avatars/avatar1.png" height="250px"></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

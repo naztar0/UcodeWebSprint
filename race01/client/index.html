@@ -1,11 +1,46 @@
-<html>
-    <head>
-        <title>Card game</title>
-    </head>
-    <body>
-        <input type="button" id="test1" value="Send GET"><br><br>
-        <span>Response:</span><br><br>
-        <span id="response"></span>
-        <script src="script.js"></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="enemyCards"><!-- Enemy cards -->
+            <ul id="rivalDeck">
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+            </ul>
+        </div>
+        <div class="enemyHero"><!-- Enemy hero -->
+            <img src="assets/images/superman.png">
+        </div>
+        <div class="distributionCard"><!-- Distribution of cards --></div>
+        <div class="battleField"><!-- BattleField --></div>
+        <div class="clock"><!-- clock -->
+            <div class="containerClock">
+                <img src="assets/images/alarmClock.png">
+                <label id="timeOutput">00:30</label>
+            </div>
+        </div>
+        <div class="myHero"><!-- My hero -->
+            <img src="assets/images/superman.png">
+        </div>
+        <div class="myCards"><!-- My cards -->
+            <ul id="myDeck">
+                <!-- <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li>
+                <li><img src="assets/images/superman.png"></li> -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
