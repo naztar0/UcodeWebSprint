@@ -23,12 +23,30 @@
         else if (isset($data["card_move"])) {
             $room = $data["room"];
             $userNum = $data["user_num"];
-            $card = $data["card"];
-            // TODO increase rival health etc.
+            $card_id = $data["card_id"];
+            $username = $data["username"];
             $model = new Model();
             $model->room = $room;
-            $model->updateUserMove($userNum === 1 ? 2 : 1);
-            die("ok");
+            $model->username = $username;
+            $model->getUser($room, $username);
+            $rival_card_id = $model->getUserMove()[1];
+            $rival = $model->getRival();
+            $win = false;
+            if (count($rival->cards) == 0) {
+                $rival->health -= $model->cards[$card_id]["attack"];
+                if ($rival->health <= 0)
+                    $win = true;
+            }
+            else {
+                $rival->cards[$rival_card_id]["health"] -= $model->cards[$card_id]["attack"];
+                if ($rival->cards[$rival_card_id]["health"] <= 0)
+                    unset($rival->cards[$rival_card_id]);
+            }
+            $model->mana++;
+            $rival->update();
+            $model->update();
+            $model->updateUserMove($userNum === 1 ? 2 : 1, $card_id);
+            die(json_encode(["win" => $win]));
         }
     }
     else if ($_GET) {
@@ -36,15 +54,15 @@
             $model = new Model();
             $model->room = intval($_GET["room"]);
             $model->username = $_GET["username"];
-            $model->getRival();
-            die(json_encode(["username" =>  $model->username, "avatar" => $model->avatar, "health" => $model->health, "cards_count" => count($model->cards)]));
+            $rival = $model->getRival();
+            die(json_encode(["username" =>  $rival->username, "avatar" => $rival->avatar, "health" => $rival->health, "mana" => $rival->mana, "cards_count" => count($rival->cards)]));
         }
         else if (isset($_GET["get_me"])) {
             $model = new Model();
             $model->room = intval($_GET["room"]);
             $model->username = $_GET["username"];
             $model->getUser($_GET["room"], $_GET["username"]);
-            die(json_encode(["username" =>  $model->username, "avatar" => $model->avatar, "health" => $model->health, "cards" => $model->cards]));
+            die(json_encode(["username" =>  $model->username, "avatar" => $model->avatar, "health" => $model->health, "mana" => $model->mana, "cards" => $model->cards]));
         }
     }
     else

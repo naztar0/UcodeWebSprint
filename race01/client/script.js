@@ -1,11 +1,16 @@
 let myId = null;
 let myUsername = null;
 let myAvatar = null;
+let myHealth = null;
+let myMana = null;
 let lastMove = null;
 let room = null;
 let host = null;
 let cards = null;
 let timerId = null;
+let myCardOnTable = null;
+let rivalCardOnTable = null;
+let rivalCardOnTableChanged = false;
 
 function setCookie(name,value,hours=1) {
     var expires = "";
@@ -28,13 +33,15 @@ function getCookie(name) {
 }
 
 host = getCookie("host");
-myId = getCookie("myId");
-room = getCookie("room");
+myId = parseInt(getCookie("myId"));
+room = parseInt(getCookie("room"));
 myUsername = getCookie("username");
 myAvatar = getCookie("avatar");
 let first_move = getCookie("first_move");
+document.getElementById("myAvatar").src = `assets/avatars/${myAvatar}.png`;
+document.getElementById("myUsername").innerHTML = myUsername;
 updateData();
-if (first_move === myId) {
+if (first_move == myId) {
     console.log("I am first move!");
     startMove();
 }
@@ -69,13 +76,19 @@ function startTimer() {
     }, 1000);
 }
 
-function animateMove(elem, cardPos) {
-    let finalX = 300, finalY = -400;  // for me
-    if (lastMove == myId)  // for rival
-        finalX = 750, finalY = 400;
+function animateMove(elem, cardPos, my=true, instant=false) {
+    let rand = Math.floor(Math.random() * 100) - 50;
+    let finalX = 300 + rand, finalY = -400 + rand;  // for me
+    if (!my)  // for rival
+        finalX = 750 + rand, finalY = 400 + rand;
     elem.style.position = "absolute";
+    if (instant) {
+        elem.style.left = finalX;
+        elem.style.top = finalY;
+        return;
+    }
     let pos = elem.getBoundingClientRect();
-    let posX = pos.width * cardPos;
+    let posX = my ? pos.width * cardPos : 1050;
     if (lastMove == myId)
         posX = pos.left - posX;
     let posY = 0;
@@ -93,55 +106,82 @@ function cardListener(elem, cardId, cardPos) {
     elem.onclick = () => {
         if (lastMove == myId)
             return;
+        if (cards[cardId]["mana"] > myMana) {
+            return;
+        }
+        myCardOnTable = cardId;
         makeMove(cardId);
         animateMove(elem, cardPos);
     }
 }
 
-function generateCard(imgContainer, mana, attack, health, text, cardtext, cardclass='neural', race='Superhero') {
-    let formData = new FormData();
-    formData.append("mana", mana);
-    formData.append("attack", attack);
-    formData.append("health", health);
-    formData.append("text", text);
-    formData.append("cardtext", cardtext);
-    formData.append("cardclass", cardclass);
-    formData.append("race", race);
-    formData.append("MAX_FILE_SIZE", 10000000);
-    let request = new XMLHttpRequest();
-    request.open("POST", `http://${host}:3101/server/send_request.php`);
-    request.send(formData);
-    request.onload = () => {
-        let url = request.response;
-        let img = document.createElement('img');
-        // img.src = url;
-        img.src = "assets/images/superman.png";
-        imgContainer.appendChild(img);
-    }
+function generateCard(imgContainer, text, health) {
+    let img = document.createElement('img');
+    img.src = `assets/cards/${text}.png`;
+    imgContainer.appendChild(img);
+    let imgHealth = document.createElement("span");
+    imgHealth.innerHTML = health;
+    imgContainer.appendChild(imgHealth);
+    imgContainer.className = "cardContainer";
+    imgHealth.className = "cardHealth";
 }
 
 function updateData() {
     let request1 = requestSend('GET', `http://${host}:3100/server/index.php?get_rival=true&room=${room}&username=${myUsername}`);
     request1.onload = () => {
         let rival = request1.response;
-        cardsCount = rival["cards_count"];
-        health = rival["health"];
+        let cardsCount = rival["cards_count"];
+        let health = rival["health"];
+        let username = rival["username"];
+        let avatar = rival["avatar"];
+        let mana = rival["mana"];
+        document.getElementById("rivalUsername").innerHTML = username;
+        document.getElementById("rivalHealth").innerHTML = health;
+        document.getElementById("rivalMana").innerHTML = mana;
+        document.getElementById("rivalAvatar").src = `assets/avatars/${avatar}.png`;
         let rivalDeck = document.getElementById("rivalDeck");
         while (rivalDeck.firstChild)
             rivalDeck.removeChild(rivalDeck.lastChild);
         for (let i = 0; i < cardsCount; i++) {
             let li = document.createElement("li");
             let imgBack = document.createElement('img');
-            imgBack.src = "assets/images/cardThanos.jpg";
+            imgBack.src = "assets/images/cardBackground.png";
             li.appendChild(imgBack);
             rivalDeck.appendChild(li);
+            console.log(rivalCardOnTable);
+            if (rivalCardOnTableChanged && i == 0) {
+                imgBack.src = `assets/cards/${rivalCardOnTable["text"]}.png`;
+                let imgHealth = document.createElement("span");
+                imgHealth.innerHTML = rivalCardOnTable["health"];
+                li.appendChild(imgHealth);
+                li.className = "cardContainer";
+                imgHealth.className = "cardHealth";
+                animateMove(li, 1, false);
+                rivalCardOnTableChanged = false;
+            }
+            else if (rivalCardOnTable && i == 0) {
+                console.log("ok");
+                imgBack.src = `assets/cards/${rivalCardOnTable["text"]}.png`;
+                let imgHealth = document.createElement("span");
+                imgHealth.innerHTML = rivalCardOnTable["health"];
+                li.appendChild(imgHealth);
+                li.className = "cardContainer";
+                imgHealth.className = "cardHealth";
+                animateMove(li, 1, false, true);
+            }
         }
     }
     let request2 = requestSend('GET', `http://${host}:3100/server/index.php?get_me=true&room=${room}&username=${myUsername}`);
     request2.onload = () => {
         let me = request2.response;
+        myUsername = me["username"]
         cards = me["cards"];
-        health = me["health"];
+        myHealth = me["health"];
+        myMana = me["mana"];
+        document.getElementById("myUsername").innerHTML = myUsername;
+        document.getElementById("myHealth").innerHTML = myHealth;
+        document.getElementById("myMana").innerHTML = myMana;
+
         let myDeck = document.getElementById("myDeck");
         while (myDeck.firstChild)
             myDeck.removeChild(myDeck.lastChild);
@@ -151,21 +191,32 @@ function updateData() {
             let li = document.createElement("li");
             myDeck.appendChild(li);
             cardListener(li, cardId, pos++);
-            generateCard(li, card["mana"], card["attack"], card["health"], card["text"],
-                         card["cardtext"], card["cardclass"], card["race"]);
+            generateCard(li, card["text"], card["health"]);
+            if (cardId == myCardOnTable) {
+                animateMove(li, pos - 1, true, true);
+            }
         }
+        if (myHealth <= 0)
+            location.href = "lose.html";
     }
 }
 
 function startMove() {
     startTimer();
     // display that i can move
+    document.getElementById("arrow").style = "transform: rotate(90deg);";
 }
 function getCardMove() {
     startTimer();
     // block my cards
-    let request = requestSend('GET', `http://${host}:3102/server/get_card_move.php?card_move=${lastMove}&room=${room}&username=${myUsername}`);
+    document.getElementById("arrow").style = "transform: rotate(-90deg);";
+    let request = requestSend('GET', `http://${host}:3102/server/get_card_move.php?card_move=${lastMove ? lastMove : (myId == 1 ? 2 : 1)}&room=${room}`);
     request.onload = () => {
+        if (request.response["card_data"]) {
+            if (rivalCardOnTable != request.response["card_data"])
+                rivalCardOnTableChanged = true;
+            rivalCardOnTable = request.response["card_data"];
+        }
         clearInterval(timerId);
         lastMove = myId == 1 ? 2 : 1;
         updateData();
@@ -174,13 +225,16 @@ function getCardMove() {
 }
 
 function makeMove(cardId) {
-    let request = requestSend('POST', `http://${host}:3100/server/index.php`, JSON.stringify({"card_move": true, "room": room, "user_num": myId, "card_id": cardId}));
+    let request = requestSend('POST', `http://${host}:3100/server/index.php`, JSON.stringify({"card_move": true, "room": room, "user_num": myId, "card_id": cardId, "username": myUsername}));
     request.onload = () => {
-        if (request.status == 200) {
+        if (!request.response["win"]) {
             clearInterval(timerId);
             lastMove = myId;
             // updateData();
-            getCardMove();
+            setTimeout(getCardMove, 2000);
+        }
+        else {
+            location.href = "win.html"
         }
     }
 }
