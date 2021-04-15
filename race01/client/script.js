@@ -1,10 +1,15 @@
 let myId = null;
+<<<<<<< HEAD
 let myUsername = null;
 let myAvatar = null;
 let myHealth = null;
 let myMana = null;
+=======
+>>>>>>> parent of 6a0ccf0... 14.04.21
 let lastMove = null;
+let host = "http://10.11.4.9:3000/server/index.php";
 let room = null;
+<<<<<<< HEAD
 let host = null;
 let cards = null;
 let timerId = null;
@@ -50,8 +55,13 @@ else {
 }
 
 function requestSend(method, url, payload=null) {
+=======
+let cards = [];
+
+function requestSend(method, payload=null) {
+>>>>>>> parent of 6a0ccf0... 14.04.21
     const request = new XMLHttpRequest();
-    request.open(method, url);
+    request.open(method, host);
     if (payload) {
         if (method === 'GET')
             request.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
@@ -63,6 +73,7 @@ function requestSend(method, url, payload=null) {
     return request;
 }
 
+<<<<<<< HEAD
 function startTimer() {
     let sec = 30;
     timerId = setInterval(() => {
@@ -238,3 +249,11 @@ function makeMove(cardId) {
         }
     }
 }
+=======
+let testBtn = document.getElementById('test1');
+testBtn.onclick = () => {
+    let request = requestSend('GET');
+    request.onload = () =>
+        document.getElementById("response").innerHTML = request.response;
+};
+>>>>>>> parent of 6a0ccf0... 14.04.21
