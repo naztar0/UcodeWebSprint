@@ -1,15 +1,10 @@
 <?php
-<<<<<<< HEAD
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: *");
     header("Access-Control-Allow-Headers: *");
     require_once("DatabaseConnection.php");
     require_once("model.php");
     require_once("cards.php");
-=======
-    require_once("../DatabaseConnection.php");
-    require_once("../model.php");
->>>>>>> parent of 6a0ccf0... 14.04.21
     $model = new Model();
     $model->room =  intval($_GET["room"]);
     $card_move = intval($_GET["card_move"]);

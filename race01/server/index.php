@@ -4,6 +4,7 @@
     header("Access-Control-Allow-Headers: *");
     require_once("DatabaseConnection.php");
     require_once("model.php");
+    require_once("cards.php");
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data = json_decode(file_get_contents('php://input'), true);
         if (isset($data["create_room"])) {
@@ -54,23 +55,14 @@
             $model->room = intval($_GET["room"]);
             $model->username = $_GET["username"];
             $rival = $model->getRival();
-<<<<<<< HEAD
             die(json_encode(["username" =>  $rival->username, "avatar" => $rival->avatar, "health" => $rival->health, "mana" => $rival->mana, "cards_count" => count($rival->cards)]));
-=======
-            die(json_encode(["username" =>  $rival->username, "avatar" => $rival->avatar, "health" => $rival->health, "cards_count" => count($rival->cards)]));
->>>>>>> parent of 6a0ccf0... 14.04.21
         }
         else if (isset($_GET["get_me"])) {
             $model = new Model();
             $model->room = intval($_GET["room"]);
             $model->username = $_GET["username"];
-<<<<<<< HEAD
             $model->getUser($_GET["room"], $_GET["username"]);
             die(json_encode(["username" =>  $model->username, "avatar" => $model->avatar, "health" => $model->health, "mana" => $model->mana, "cards" => $model->cards]));
-=======
-            $result = $model->getUser($_GET["room"], $_GET["username"]);
-            die(json_encode(["username" =>  $result->username, "avatar" => $result->avatar, "health" => $result->health, "cards_count" => $result->cards]));
->>>>>>> parent of 6a0ccf0... 14.04.21
         }
     }
     else
